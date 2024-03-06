@@ -38,7 +38,7 @@ private HealthCalc calculator;
     @Test
     public void testIdealWeightForHeight300() throws Exception {
         float result = calculator.idealWeight(300, 'w');
-        assertEquals(162.5f, result, 0.01f); // Cambiar el valor esperado según el cálculo esperado para una altura de 300cm
+        assertEquals(140.0f, result, 0.01f); // Cambiar el valor esperado según el cálculo esperado para una altura de 300cm
     }
 
     @Test
