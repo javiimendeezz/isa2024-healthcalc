@@ -100,13 +100,13 @@ private HealthCalc calculator;
     @Test
     public void testHeightAtLowerLimit() throws Exception {
         float result = calculator.basalMetabolicRate(65, 140, 'w', 45);
-        assertEquals(1239f, result, 0.1f);
+        assertEquals(1139f, result, 0.1f);
     }
 
     @Test
     public void testHeightAtUpperLimit() throws Exception {
         float result = calculator.basalMetabolicRate(65, 300, 'w', 45);
-        assertEquals(2239f, result, 0.1f);
+        assertEquals(2139f, result, 0.1f);
     }
 
     @Test

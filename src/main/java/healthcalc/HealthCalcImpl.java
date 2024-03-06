@@ -22,9 +22,25 @@ public class HealthCalcImpl implements HealthCalc {
 
     @Override
     public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception {
-        // TODO Auto-generated method stub
-        return 0;
+        if (weight <= 0 || age <= 0) {
+            throw new IllegalArgumentException("Weight and age must be positive numbers");
+        }
+
+        if (height < 140 || height > 300) {
+            throw new IllegalArgumentException("Height must be between 140 and 300");
+        }
+
+        float bmr;
+        if (gender == 'm') {
+            bmr = 10 * weight + 6.25f * height - 5 * age + 5;
+        } else if (gender == 'w') {
+            bmr = 10 * weight + 6.25f * height - 5 * age - 161;
+        } else {
+            throw new IllegalArgumentException("Invalid gender. Must be 'm' or 'w'.");
+        }
+        return bmr;
     }
+
 
     
 }
