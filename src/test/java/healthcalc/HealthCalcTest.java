@@ -61,6 +61,67 @@ private HealthCalc calculator;
             calculator.idealWeight(170, 'a');
         });
     }
+
+    //Test para basalMetabolicRate
+
+    @Test
+    public void testBMRForMale() {
+        float result = calculator.basalMetabolicRate(70, 170, 'm', 30);
+        assertEquals(1617.5f, result, 0.1f);
+    }
+
+    @Test
+    public void testBMRForFemale() {
+        float result = calculator.basalMetabolicRate(60, 160, 'w', 35);
+        assertEquals(1264f, result, 0.1f);
+    }
+
+    @Test
+    public void testNegativeWeight() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculator.basalMetabolicRate(-70, 180, 'm', 40);
+        });
+    }
+
+    @Test
+    public void testHeightAboveUpperLimit() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculator.basalMetabolicRate(65, 310, 'w', 45);
+        });
+    }
+
+    @Test
+    public void testHeightBelowLowerLimit() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculator.basalMetabolicRate(65, 0, 'w', 45);
+        });
+    }
+
+    @Test
+    public void testHeightAtLowerLimit() {
+        float result = calculator.basalMetabolicRate(65, 140, 'w', 45);
+        assertEquals(1239f, result, 0.1f);
+    }
+
+    @Test
+    public void testHeightAtUpperLimit() {
+        float result = calculator.basalMetabolicRate(65, 300, 'w', 45);
+        assertEquals(2239f, result, 0.1f);
+    }
+
+    @Test
+    public void testNegativeAge() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculator.basalMetabolicRate(75, 180, 'm', -50);
+        });
+    }
+
+    @Test
+    public void testInvalidGender() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculator.basalMetabolicRate(80, 170, 'x', 55);
+        });
+    }
 	
 
 }
