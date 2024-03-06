@@ -65,13 +65,13 @@ private HealthCalc calculator;
     //Test para basalMetabolicRate
 
     @Test
-    public void testBMRForMale() {
+    public void testBMRForMale() throws Exception {
         float result = calculator.basalMetabolicRate(70, 170, 'm', 30);
         assertEquals(1617.5f, result, 0.1f);
     }
 
     @Test
-    public void testBMRForFemale() {
+    public void testBMRForFemale() throws Exception {
         float result = calculator.basalMetabolicRate(60, 160, 'w', 35);
         assertEquals(1264f, result, 0.1f);
     }
@@ -98,13 +98,13 @@ private HealthCalc calculator;
     }
 
     @Test
-    public void testHeightAtLowerLimit() {
+    public void testHeightAtLowerLimit() throws Exception {
         float result = calculator.basalMetabolicRate(65, 140, 'w', 45);
         assertEquals(1239f, result, 0.1f);
     }
 
     @Test
-    public void testHeightAtUpperLimit() {
+    public void testHeightAtUpperLimit() throws Exception {
         float result = calculator.basalMetabolicRate(65, 300, 'w', 45);
         assertEquals(2239f, result, 0.1f);
     }
