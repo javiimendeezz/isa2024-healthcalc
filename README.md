@@ -101,7 +101,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 - Género: 'w'
 - Edad: 35 años
 
-**Resultado esperado:** Se espera que la BMR sea aproximadamente 1289.
+**Resultado esperado:** Se espera que la BMR sea aproximadamente 1264.
 
 ### Caso de prueba 3: Peso negativo
 
@@ -115,19 +115,55 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 4: Altura negativa
+### Caso de prueba 4: Altura fuera de rango superior
 
-**Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura negativa.
+**Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura fuera del límite superior.
 
 **Entrada:**
 - Peso: 65 kg
-- Altura: -175 cm
+- Altura: 310 cm
 - Género: 'w'
 - Edad: 45 años
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 5: Edad negativa
+### Caso de prueba 5: Altura fuera de rango inferior
+
+**Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura bajo el límite inferior.
+
+**Entrada:**
+- Peso: 65 kg
+- Altura: 0 cm
+- Género: 'w'
+- Edad: 45 años
+
+**Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
+
+### Caso de prueba 6: Altura limite de rango inferior
+
+**Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura en el límite inferior.
+
+**Entrada:**
+- Peso: 65 kg
+- Altura: 140 cm
+- Género: 'w'
+- Edad: 45 años
+
+**Resultado esperado:** Se espera que la BMR sea aproximadamente 1239.
+
+### Caso de prueba 7: Altura limite de rango superior
+
+**Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura en el límite inferior.
+
+**Entrada:**
+- Peso: 65 kg
+- Altura: 300 cm
+- Género: 'w'
+- Edad: 45 años
+
+**Resultado esperado:** Se espera que la BMR sea aproximadamente 2239.
+
+### Caso de prueba 8: Edad negativa
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la edad negativa.
 
@@ -139,7 +175,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 6: Género no válido
+### Caso de prueba 9: Género no válido
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente un género no válido.
 
