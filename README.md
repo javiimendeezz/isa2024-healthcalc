@@ -186,3 +186,19 @@ A continuación se describen una serie de casos de prueba para el método `basal
 - Edad: 55 años
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
+
+
+## Resultado test en maven
+
+![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/main/mvn_test.PNG)
+
+
+
+## Resultado tests individuales
+
+![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/main/test_run.PNG)
+
+## Resumen commits
+
+![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/main/resumen_commits.PNG)
+
