@@ -1,11 +1,17 @@
-# isa2024-healtcalc
-Health calculator
+# Health Calculator -  "Ingeniería de Software Avanzada"
+## Practica 1
+Este proyecto es fruto  de la primera práctica en el marco de la asignatura "Ingeniería del Software Avanzada", asignatura de 3º de Ingeniería Bioinformática en la Universidad de Málaga. Su propósito primordial radica en la implementación de los métodos `idealWeight` y `basalMetabolicRate` dentro de la clase `HealthCalcImp`, siguiendo rigurosamente la metodología de Desarrollo Guiado por Pruebas (TDD). Para ello, se ha seguido un enfoque meticuloso que comprende los siguientes pasos de manera ordenada:
 
-A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, que implementa la interfaz `HealthCalc`.
+1.  Definición de los casos de prueba.
+2.  Elaboración y ejecución de pruebas  con JUnit5/Maven que validan el funcionamiento esperado.
+3.  Implementación concreta de los métodos `idealWeight` y `basalMetabolicRate`.
 
-## Casos de prueba para el método idealWeight
+Adicionalmente, se ha optado por la utilización de Git y Github como herramientas fundamentales para gestionar el control de versiones del proyecto. Este enfoque ha sido complementado con prácticas de desarrollo colaborativo, realizando _commits_ detallados y significativos, acompañados de comentarios explicativos. Se han creado y gestionado ramas conforme ha sido necesario.
 
-### Caso de prueba 1: Calcular peso ideal para un hombre
+### Tests
+
+#### Tests método `HealthCalcImpl.idealWeight`
+##### Caso de prueba 1: Calcular peso ideal para un hombre
 
 **Descripción:** Se prueba que el método `idealWeight` calcule correctamente el peso ideal para un hombre con una altura válida.
 
@@ -14,7 +20,7 @@ A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, 
 - Género: 'm'
 **Resultado esperado:** Se espera que el peso ideal sea aproximadamente 68.75 kg.
 
-### Caso de prueba 2: Calcular peso ideal para una mujer
+##### Caso de prueba 2: Calcular peso ideal para una mujer
 
 **Descripción:** Se prueba que el método `idealWeight` calcule correctamente el peso ideal para una mujer con una altura válida.
 
@@ -24,7 +30,7 @@ A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, 
 
 **Resultado esperado:** Se espera que el peso ideal sea aproximadamente 59.0 kg.
 
-### Caso de prueba 3: Altura mínima
+##### Caso de prueba 3: Altura mínima
 
 **Descripción:** Se prueba que el método `idealWeight` maneje correctamente la altura mínima permitida.
 
@@ -35,7 +41,7 @@ A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, 
 **Resultado esperado:** Se espera que el peso ideal sea aproximadamente 42.5 kg.
 
 
-### Caso de prueba 4: Altura máxima
+##### Caso de prueba 4: Altura máxima
 
 **Descripción:** Se prueba que el método `idealWeight` maneje correctamente la altura máxima permitida.
 
@@ -45,7 +51,7 @@ A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, 
 
 **Resultado esperado:** Se espera que el peso ideal sea aproximadamente 162.5 kg.
 
-### Caso de prueba 5: Altura no válida (supera la altura máxima)
+##### Caso de prueba 5: Altura no válida (supera la altura máxima)
 
 **Descripción:** Se prueba que el método `idealWeight` maneje correctamente una altura no válida.
 
@@ -55,7 +61,7 @@ A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, 
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 6: Altura no válida (inferior a la altura mínima)
+##### Caso de prueba 6: Altura no válida (inferior a la altura mínima)
 
 **Descripción:** Se prueba que el método `idealWeight` maneje correctamente una altura no válida.
 
@@ -65,7 +71,7 @@ A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, 
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 7: Género no válido
+##### Caso de prueba 7: Género no válido
 
 **Descripción:** Se prueba que el método `idealWeight` maneje correctamente un género no válido.
 
@@ -75,11 +81,10 @@ A continuación describiré los casos de prueba para la clase `HealthCalcImpl`, 
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-## Casos de prueba para el método basalMetabolicRate
-
+#### Tests método `HealthCalcImpl.basalMetabolicRate`
 A continuación se describen una serie de casos de prueba para el método `basalMetabolicRate` de la clase que implementa la interfaz `HealthCalc`.
 
-### Caso de prueba 1: Calcular BMR para un hombre
+##### Caso de prueba 1: Calcular BMR para un hombre
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` calcule correctamente la tasa metabólica basal (BMR) para un hombre con valores válidos de peso, altura y edad.
 
@@ -91,7 +96,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que la BMR sea aproximadamente 1617.5.
 
-### Caso de prueba 2: Calcular BMR para una mujer
+##### Caso de prueba 2: Calcular BMR para una mujer
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` calcule correctamente la tasa metabólica basal (BMR) para una mujer con valores válidos de peso, altura y edad.
 
@@ -103,7 +108,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que la BMR sea aproximadamente 1264.
 
-### Caso de prueba 3: Peso negativo
+##### Caso de prueba 3: Peso negativo
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente el peso negativo.
 
@@ -115,7 +120,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 4: Altura fuera de rango superior
+##### Caso de prueba 4: Altura fuera de rango superior
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura fuera del límite superior.
 
@@ -127,7 +132,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 5: Altura fuera de rango inferior
+##### Caso de prueba 5: Altura fuera de rango inferior
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura bajo el límite inferior.
 
@@ -139,7 +144,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 6: Altura limite de rango inferior
+##### Caso de prueba 6: Altura limite de rango inferior
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura en el límite inferior.
 
@@ -151,7 +156,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que la BMR sea aproximadamente 1239.
 
-### Caso de prueba 7: Altura limite de rango superior
+##### Caso de prueba 7: Altura limite de rango superior
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la altura en el límite inferior.
 
@@ -163,7 +168,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que la BMR sea aproximadamente 2239.
 
-### Caso de prueba 8: Edad negativa
+##### Caso de prueba 8: Edad negativa
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente la edad negativa.
 
@@ -175,7 +180,7 @@ A continuación se describen una serie de casos de prueba para el método `basal
 
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
-### Caso de prueba 9: Género no válido
+##### Caso de prueba 9: Género no válido
 
 **Descripción:** Se prueba que el método `basalMetabolicRate` maneje correctamente un género no válido.
 
@@ -188,17 +193,27 @@ A continuación se describen una serie de casos de prueba para el método `basal
 **Resultado esperado:** Se espera que se lance una excepción `IllegalArgumentException`.
 
 
-## Resultado test en maven
+
+### Resultado de los test en Maven
+
 
 ![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/main/mvn_test.PNG)
 
+### Resultado de los test en JUnit5
 
-
-## Resultado tests individuales
 
 ![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/main/test_run.PNG)
 
-## Resumen commits
 
+Todos los test han sido superados con éxito, por lo que lo que esperamos del programa parece estar acorde a la implementación realizada, que pese a ello está en continua revisión para ser sometida a futuras actualizaciones.
+
+### Uso de Git & Github durante el proyecto
 ![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/main/resumen_commits.PNG)
 
+
+**Desarrollo**
+Durante esta práctica he aprendido el funcionamiento de la nueva metodología de desarrollo por test vista en clase, y me ha resultado muy útil ya que en otras ocasiones hemos desarrollado los test en base a un código previamente hecho para darnos cuenta finalmente de que la implementación no era la más adecuada y tener que rehacerla, con la correspondiente inversión de tiempo y esfuerzo. 
+
+En este caso los test han servido de guía para una implementación completa y mínima en posibles vacíos (como los posibles parámetros de entrada no contemplados para las funciones).
+
+También he afianzado los conceptos de Git/GitHub aprendidos en las primeras prácticas de la asignatura gracias a seguir empleando esta útil herramienta, que me ha ayudado a controlar los pequeños cambios en las versiones del código y acceder a ellas de manera remota desde distintos dispositivos y lugares.
