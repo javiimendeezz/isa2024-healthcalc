@@ -1,5 +1,5 @@
 # Health Calculator -  "Ingeniería de Software Avanzada"
-## Practica 1
+## Práctica 1
 Este proyecto es fruto  de la primera práctica en el marco de la asignatura "Ingeniería del Software Avanzada", asignatura de 3º de Ingeniería Bioinformática en la Universidad de Málaga. Su propósito primordial radica en la implementación de los métodos `idealWeight` y `basalMetabolicRate` dentro de la clase `HealthCalcImp`, siguiendo rigurosamente la metodología de Desarrollo Guiado por Pruebas (TDD). Para ello, se ha seguido un enfoque meticuloso que comprende los siguientes pasos de manera ordenada:
 
 1.  Definición de los casos de prueba.
@@ -217,3 +217,35 @@ Durante esta práctica he aprendido el funcionamiento de la nueva metodología d
 En este caso los test han servido de guía para una implementación completa y mínima en posibles vacíos (como los posibles parámetros de entrada no contemplados para las funciones).
 
 También he afianzado los conceptos de Git/GitHub aprendidos en las primeras prácticas de la asignatura gracias a seguir empleando esta útil herramienta, que me ha ayudado a controlar los pequeños cambios en las versiones del código y acceder a ellas de manera remota desde distintos dispositivos y lugares.
+
+## Práctica 2
+### Diagrama de Casos de Uso
+![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/practica2/doc/casos_uso.PNG)
+
+### Diagrama de Casos de Uso Extendido
+![](https://github.com/javiimendeezz/isa2024-healthcalc/blob/practica2/doc/casos_uso_ext.PNG)
+
+### Especificación del Caso de Uso: Calcular Tasa Metabólica Basal.
+**Nombre:** Cálculo Tasa Metabólica Basal
+**Stakeholders:** 
+    - *Usuario:* Realizar el cálculo de su tasa metabólica basal.
+    - *Administrador:* Garantizar el acceso a la calculadora y que esta trabaje de la manera esperada.
+
+**Actor principal:** Usuario
+**Alcance (scope):** Aplicación isa2024-healthCalc
+**Precondiciones:**
+    - El usuario es capaz de acceder exitosamente al programa isa2024-healthCalc.
+**Garantías:**
+    - En caso de exito: El programa devuelve una estimación  correcta de la Tasa Metabólica Basal en base a los parámetros definidos por el usuario.
+    - En caso de error: Se muestra un mensaje de error por pantalla.
+**Trigger:** El usuario ejecuta la funcionalidad Calcular Tasa Metabólica Basal desde el programa principal.
+**Escenario principal:**
+    1. El usuario ejecuta la funcionalidad "Calcular Tasa Metabólica Basal" en el programa isa2024-healthCalc.
+    2. El sistema solicita al usuario los parámetros necesarios para el funcionamiento de la demanda. 
+    3. El usuario introduce los valores de los parámetros de forma correcta. 
+    4. El sistema aplica el método con los parámetros introducidos. 
+    5. El sistema muestra el resultado correcto.
+**Extensiones:**
+    3a. El usuario NO introduce los valores de los parámetros de forma correcta.
+        3a.1. El sistema muestra un mensaje de error, indicando que ha proporcionado parámetros no válidos.
+        3a.2. Se vuelve a 2.
