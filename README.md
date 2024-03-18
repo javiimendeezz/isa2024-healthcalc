@@ -227,24 +227,32 @@ También he afianzado los conceptos de Git/GitHub aprendidos en las primeras pr�
 
 ### Especificación del Caso de Uso: Calcular Tasa Metabólica Basal.
 **Nombre:** Cálculo Tasa Metabólica Basal
+
 **Stakeholders:** 
     - *Usuario:* Realizar el cálculo de su tasa metabólica basal.
     - *Administrador:* Garantizar el acceso a la calculadora y que esta trabaje de la manera esperada.
 
+
 **Actor principal:** Usuario
+
 **Alcance (scope):** Aplicación isa2024-healthCalc
+
 **Precondiciones:**
     - El usuario es capaz de acceder exitosamente al programa isa2024-healthCalc.
+    
 **Garantías:**
     - En caso de exito: El programa devuelve una estimación  correcta de la Tasa Metabólica Basal en base a los parámetros definidos por el usuario.
     - En caso de error: Se muestra un mensaje de error por pantalla.
+    
 **Trigger:** El usuario ejecuta la funcionalidad Calcular Tasa Metabólica Basal desde el programa principal.
+
 **Escenario principal:**
     1. El usuario ejecuta la funcionalidad "Calcular Tasa Metabólica Basal" en el programa isa2024-healthCalc.
     2. El sistema solicita al usuario los parámetros necesarios para el funcionamiento de la demanda. 
     3. El usuario introduce los valores de los parámetros de forma correcta. 
     4. El sistema aplica el método con los parámetros introducidos. 
     5. El sistema muestra el resultado correcto.
+    
 **Extensiones:**
     3a. El usuario NO introduce los valores de los parámetros de forma correcta.
         3a.1. El sistema muestra un mensaje de error, indicando que ha proporcionado parámetros no válidos.
