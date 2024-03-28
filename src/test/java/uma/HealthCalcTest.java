@@ -1,17 +1,14 @@
-package healthcalc;
+package uma;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import healthcalc.*;
 
-@DisplayName("Tests para la calculadora de salud.")
 public class HealthCalcTest {
 
+    
 private HealthCalc calculator;
 
 
@@ -122,6 +119,5 @@ private HealthCalc calculator;
             calculator.basalMetabolicRate(80, 170, 'x', 55);
         });
     }
-	
-
+    
 }
