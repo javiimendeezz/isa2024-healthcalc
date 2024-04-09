@@ -22,29 +22,60 @@ Feature: Calcular Peso Ideal
 
 As a usuario I want to  calcular mi peso ideal So that mantenerme saludable
 
-  @tag1
-  Scenario: Calcular peso ideal para un hombre
-    Given una altura de 180 cm
-    And el género es masculino
-    When se calcula el peso ideal
-    Then el peso ideal debería ser 72.5
 
-  @tag2
-  Scenario: Calcular peso ideal para una mujer
-    Given una altura de 160 cm
-    And el género es femenino
-    When se calcula el peso ideal
-    Then el peso ideal debería ser 56.0
+  @tag1
+  Scenario: Calcular peso ideal hombre con entrada valida
+    Given tengo una calculadora de salud
+    When calculo el peso ideal con entrada valida de un hombre que mide <altura>
+    Then el peso ideal debería ser <resultado>
+
+      Examples:
+    | altura |resultado |
+    | 180    |72.5      |
+    | 170    |65.0      |
+    | 200    |87.5      |
+    | 140    |42.5      |
+    | 300    |162.5     |
+
+     @tag2
+  Scenario: Calcular peso ideal mujer con entrada valida
+    Given tengo una calculadora de salud
+    When calculo el peso ideal con entrada valida de una mujer que mide <altura>
+    Then el peso ideal debería ser <resultado>
+
+      Examples:
+    | altura | resultado |
+    | 160    |56.0      |
+    | 170    |62.0      |
+    | 190    |74.0      |
+    | 140    |44.0      |
+    | 300    |140.0     |
+
+
+    
 
   @tag3
-  Scenario Outline: Manejar errores de entrada inválida
-    Given una altura de <altura> cm
-    And el género es <genero>
-    When se intenta calcular el peso ideal
-    Then debería obtener un error que diga "<mensaje_error>"
+  Scenario Outline: Manejar errores de altura inválida
+    Given tengo una calculadora de salud
+    When calculo el peso ideal con entrada no valida de una persona que mide <altura>
+    Then el sistema lanza una excepcion
 
     Examples:
-      | altura | genero | mensaje_error                             |
-      | 120    | f      | "Altura debe estar entre 140 y 300"       |
-      | 320    | m      | "Altura debe estar entre 140 y 300"       |
-      | 180    | x      | "Género inválido. Debe ser 'm' o 'w'."    |
+      | altura |
+      | 120    |
+      | 320    |
+      | 90     |
+      | 330    |
+
+
+ @tag4
+  Scenario Outline: Manejar errores de genero inválido
+    Given tengo una calculadora de salud
+    When calculo el peso ideal con entrada no valida de una persona de genero <genero>
+    Then el sistema lanza una excepcion
+
+    Examples:
+      | genero |
+      | "x"    |
+      | "a"    |
+      | "t"    |
