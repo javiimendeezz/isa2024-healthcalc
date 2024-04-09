@@ -6,7 +6,7 @@ public class HealthCalcImpl implements HealthCalc {
     public float idealWeight(int height, char gender) throws Exception {
          // Validar que la altura esté dentro del rango permitido
     if (height < 140 || height > 300) {
-        throw new IllegalArgumentException("Height must be between 140 and 300");
+        throw new HealthCalcException("La altura debe estar entre 140 y 300" );
     }
 
     float idealWeight;
@@ -15,7 +15,7 @@ public class HealthCalcImpl implements HealthCalc {
     } else if (gender == 'w') {
         idealWeight = height - 100 - (height - 150) / 2.5f;
     } else {
-        throw new IllegalArgumentException("Invalid gender. Must be 'm' or 'w'.");
+        throw new HealthCalcException("Género inválido. Debe ser 'm' o 'w'." );
     }
     return idealWeight;
     }
