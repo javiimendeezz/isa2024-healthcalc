@@ -9,20 +9,26 @@ import io.cucumber.java.en.When;
 import uma.HealthCalcImpl;
 
 
-public class IdealWeight_SteptDef {
+public class StepDefinitions {
     private int altura;
     private char genero;
+    private int edad;
+    private Float peso;
     private HealthCalcImpl calc;
     private Float result ;
 	private boolean raiseException;
+    private Float bmr;
 
     @Before
 	public void initialization() {
         this.altura=0;
         this.genero=' ';
+        this.edad=0;
+        this.peso=null;
 		calc = null;
 	    result = null;
 	    raiseException = false;
+        bmr=null;
 	}
 
     @Given("tengo una calculadora de salud")
@@ -87,6 +93,27 @@ public void el_peso_ideal_debería_ser(float expected) {
 public void el_sistema_lanza_una_excepcion() {
     Assertions.assertTrue(raiseException);
 }
+
+@When("calculo el BMR cuya entrada es {float}, {int}, {int}, {string}")
+public void calculo_el_bmr_cuya_entrada_es(float int1, Integer int2, Integer int3, String string) {
+    this.peso=int1;
+    this.altura=int2;
+    this.edad=int3;
+    char gender = string.charAt(0);
+    this.genero=gender;
+        try {
+            bmr=calc.basalMetabolicRate(this.peso, this.altura, this.genero, this.edad);
+        } catch (Exception e) {
+            raiseException=true;
+        }
+}
+@Then("el BMR ser {float}")
+public void el_bmr_ser(float expected) {
+    float delta = 0.001f;
+    Assertions.assertEquals(expected, bmr,delta);
+}
+
+
 
 
 }
